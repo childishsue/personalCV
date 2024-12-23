@@ -1,0 +1,206 @@
+:root {
+    /* 亮色模式預設值 */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f6f8fc;
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    --border-color: #e0e0e0;
+    --hover-bg: #f1f3f4;
+    --active-bg: #e6f3ff;
+    --unread-bg: #e6f3ff;
+}
+
+/* 暗色模式 */
+.dark-mode {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #9e9e9e;
+    --border-color: #333333;
+    --hover-bg: #2c2c2c;
+    --active-bg: #2a3443;
+    --unread-bg: #2a3443;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+    height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    height: 100%;
+}
+
+.mode-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    padding: 10px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar-menu li:hover {
+    background-color: var(--hover-bg);
+}
+
+.sidebar-menu li.active {
+    background-color: var(--active-bg);
+    border-left: 4px solid #1a73e8;
+}
+
+.mail-list {
+    width: 350px;
+    border-right: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+}
+
+.mail-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mail-list-header input {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.mail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.mail-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.mail-item.unread {
+    font-weight: bold;
+    background-color: var(--unread-bg);
+}
+
+.mail-preview {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.mail-sender {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.mail-subject {
+    color: var(--text-primary);
+    margin-top: 5px;
+}
+
+.mail-snippet {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+.mail-time {
+    color: var(--text-secondary);
+    font-size: 0.8em;
+}
+
+.mail-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--bg-secondary);
+    overflow-y: auto;
+}
+
+.email-detail {
+    background-color: var(--bg-primary);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.email-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.email-sender {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.email-time {
+    color: var(--text-secondary);
+}
+
+.email-body {
+    color: var(--text-primary);
+}
+
+.placeholder {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 20px;
+}
+
+.folder-name {
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.folder-count {
+    color: var(--text-secondary);
+}

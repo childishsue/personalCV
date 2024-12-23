@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail 克隆</title>
+    <link rel="stylesheet" href="./assets/style/gmail-clone-css.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<html>
+    <body id="app">
+        <div class="container" :class="{ 'dark-mode': isDarkMode }">
+            <!-- 模式切換按鈕 -->
+            <div class="mode-toggle" @click="toggleMode">
+                🌓 切換模式
+            </div>
+
+            <div class="app-container">
+                <!-- 側邊欄 -->
+                <div class="sidebar">
+                    <div class="sidebar-header">
+                        <span class="menu-icon">☰</span>
+                        <h2>Gmail</h2>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li
+                            v-for="folder in folders"
+                            :key="folder.name"
+                            :class="{ 'active': selectedFolder === folder.name }"
+                            @click="selectFolder(folder.name)"
+                        >
+                            <span>{{ folder.icon }}</span>
+                            <span class="folder-name">{{ folder.name }}</span>
+                            <span class="folder-count">({{ folder.count }})</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 郵件列表 -->
+                <div class="mail-list">
+                    <div class="mail-list-header">
+                        <h3>{{ selectedFolder }}</h3>
+                        <input
+                            type="text"
+                            placeholder="搜尋郵件"
+                            v-model="searchQuery"
+                        >
+                    </input>
+
+                    <div
+                        v-for="email in filteredEmails"
+                        :key="email.id"
+                        class="mail-item"
+                        :class="{ 'unread': !email.isRead }"
+                        @click="selectEmail(email)"
+                    >
+                        <div class="mail-preview">
+                            <div class="mail-sender">{{ email.sender }}</div>
+                            <div class="mail-subject">{{ email.subject }}</div>
+                            <div class="mail-snippet">{{ email.preview }}</div>
+                        </div>
+                        <div class="mail-time">{{ email.time }}</div>
+                    </div>
+                </div>
+
+                <!-- 郵件內容預覽 -->
+                <div class="mail-content">
+                    <div v-if="selectedEmail" class="email-detail">
+                        <h2>{{ selectedEmail.subject }}</h2>
+                        <div class="email-header">
+                            <span class="email-sender">{{ selectedEmail.sender }}</span>
+                            <span class="email-time">{{ selectedEmail.time }}</span>
+                        </div>
+                        <div class="email-body">
+                            {{ selectedEmail.preview }}
+                        </div>
+                    </div>
+                    <div v-else class="placeholder">
+                        選擇一封郵件以查看詳細內容
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/gmail-clone-js.js"></script>
+</div>
+</body>

@@ -1,0 +1,57 @@
+nav.main-menu
+  div
+    div.user-info
+      img(src="../assets/img/neosu.jpg" alt="user")
+      p 蘇子豪
+      p Neo
+      ul.social-icon
+        li
+          a(href="https://line.me/ti/p/i-xcQyisle")
+            i.iconify.nav-icon(data-icon="fa6-brands:line")
+
+        li
+          a(href="https://www.facebook.com/childish.sue")
+            i.iconify.nav-icon(data-icon="fa6-brands:square-facebook")
+
+        li
+          a(href="https://www.instagram.com/neohao_imona/")
+            i.iconify.nav-icon(data-icon="fa6-brands:instagram")
+
+        li
+          a(href="https://www.linkedin.com/in/neohao/")
+            i.iconify.nav-icon(data-icon="fa6-brands:linkedin")
+
+        li
+          a(href="https://discordapp.com/users/noheaven#9304")
+            i.iconify.nav-icon(data-icon="fa6-brands:discord")
+
+    ul
+      li.nav-item(:class="{ active: activeIndex === 0 }" @click="changeSection(0)")
+        a(href="#")
+          i.iconify.nav-icon(data-icon="iconamoon:apps")
+          span.nav-text 總覽
+
+      li.nav-item(:class="{ active: activeIndex === 1 }" @click="changeSection(1)")
+        a(href="#")
+          i.iconify.nav-icon(data-icon="grommet-icons:certificate")
+          span.nav-text 學歷/經歷
+
+      li.nav-item(:class="{ active: activeIndex === 2 }" @click="changeSection(2)")
+        a(href="#")
+          i.iconify.nav-icon(data-icon="grommet-icons:text-wrap")
+          span.nav-text 網站UI
+
+      li.nav-item(:class="{ active: activeIndex === 3 }" @click="changeSection(3)")
+        a(href="#")
+          i.iconify.nav-icon(data-icon="clarity:application-solid")
+          span.nav-text 活動網站
+
+      li.nav-item(:class="{ active: activeIndex === 4 }" @click="changeSection(4)")
+        a(href="#")
+          i.iconify.nav-icon(data-icon="la:building")
+          span.nav-text 企業識別
+
+      li.nav-item(:class="{ active: activeIndex === 5 }" @click="changeSection(5)")
+        a(href="#")
+          i.iconify.nav-icon(data-icon="fa:home")
+          span.nav-text 其他

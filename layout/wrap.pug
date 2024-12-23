@@ -1,0 +1,30 @@
+doctype html
+html(lang="zh-Hant")
+  head
+    meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title PersonalCV
+    link(rel="icon" type="image/x-icon" href="../assets/img/favicon.ico")
+
+    block css
+      link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css")
+      link(rel="stylesheet", href="../assets/style/main.min.css")
+
+    block js
+      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.13/vue.global.min.js")
+      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js")
+      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js")
+      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js")
+
+  body
+    main#app
+      block leftNav
+        include leftNav
+
+      block content
+
+      block footer
+        include footer
+
+    script(type="text/javascript" src="../assets/js/main.js")

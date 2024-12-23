@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonalCV</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../assets/style/main.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.13/vue.global.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <main id="app">
+      <nav class="main-menu">
+        <div>
+          <div class="user-info"><img src="../assets/img/neosu.jpg" alt="user">
+            <p>蘇子豪</p>
+            <p>Neo</p>
+            <ul class="social-icon">
+              <li><a href="https://line.me/ti/p/i-xcQyisle"><i class="iconify nav-icon" data-icon="fa6-brands:line"></i></a></li>
+              <li><a href="https://www.facebook.com/childish.sue"><i class="iconify nav-icon" data-icon="fa6-brands:square-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/neohao_imona/"><i class="iconify nav-icon" data-icon="fa6-brands:instagram"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/neohao/"><i class="iconify nav-icon" data-icon="fa6-brands:linkedin"></i></a></li>
+              <li><a href="https://discordapp.com/users/noheaven#9304"><i class="iconify nav-icon" data-icon="fa6-brands:discord"></i></a></li>
+            </ul>
+          </div>
+          <ul>
+            <li class="nav-item" :class="{ active: activeIndex === 0 }" @click="changeSection(0)"><a href="#"><i class="iconify nav-icon" data-icon="iconamoon:apps"></i><span class="nav-text">總覽</span></a></li>
+            <li class="nav-item" :class="{ active: activeIndex === 1 }" @click="changeSection(1)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:certificate"></i><span class="nav-text">學歷/經歷</span></a></li>
+            <li class="nav-item" :class="{ active: activeIndex === 2 }" @click="changeSection(2)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:text-wrap"></i><span class="nav-text">網站UI</span></a></li>
+            <li class="nav-item" :class="{ active: activeIndex === 3 }" @click="changeSection(3)"><a href="#"><i class="iconify nav-icon" data-icon="clarity:application-solid"></i><span class="nav-text">活動網站</span></a></li>
+            <li class="nav-item" :class="{ active: activeIndex === 4 }" @click="changeSection(4)"><a href="#"><i class="iconify nav-icon" data-icon="la:building"></i><span class="nav-text">企業識別</span></a></li>
+            <li class="nav-item" :class="{ active: activeIndex === 5 }" @click="changeSection(5)"><a href="#"><i class="iconify nav-icon" data-icon="fa:home"></i><span class="nav-text">其他</span></a></li>
+          </ul>
+        </div>
+      </nav>
+      <section class="content" id="overview" v-if="activeIndex === 0">
+        <div class="left-content">
+          <div class="slider-container">
+            <h1>活動頁 Eventsite</h1>
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="../assets/img/933x277_01.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/933x277_02.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/933x277_03.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/933x277_04.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/933x277_05.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/933x277_06.jpg"></div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="artists">
+            <h1>素材 Banner</h1>
+            <div class="artist-container containers">
+              <div class="album">
+                <div class="album-frame"><img src="../assets/img/933x277_01.jpg" alt=""></div>
+                <div>
+                  <h2>Views</h2>
+                  <p>Drake</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="../assets/img/933x277_02.jpg" alt=""></div>
+                <div>
+                  <h2>Speak Now</h2>
+                  <p>Taylor Swift</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="../assets/img/933x277_03.jpg" alt=""></div>
+                <div>
+                  <h2>Born to Die</h2>
+                  <p>Lana Del Rey</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="../assets/img/933x277_04.jpg" alt=""></div>
+                <div>
+                  <h2>Endless Summer Vacation</h2>
+                  <p>Miley Cyrus</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f01f546a-7ab7-4e90-acb9-1c1e817b676d" alt=""></div>
+                <div>
+                  <h2>The Dark Side of The Moon</h2>
+                  <p>Pink Floyd</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="albums">
+            <h1>商標 Logo</h1>
+            <div class="album-container containers">
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/74c4f0f9-d73e-4737-83fa-ea4afe392229" alt=""></div>
+                <div>
+                  <h2>Views</h2>
+                  <p>Drake</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d3a0bac0-fdb4-467e-bdf5-f3f415928f24" alt=""></div>
+                <div>
+                  <h2>Speak Now</h2>
+                  <p>Taylor Swift</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/85521a12-cc46-4b9f-a742-21ba407ebd5e" alt=""></div>
+                <div>
+                  <h2>Born to Die</h2>
+                  <p>Lana Del Rey</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4e7bf466-7fa5-4dad-b628-5bca12833b64" alt=""></div>
+                <div>
+                  <h2>Endless Summer Vacation</h2>
+                  <p>Miley Cyrus</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f01f546a-7ab7-4e90-acb9-1c1e817b676d" alt=""></div>
+                <div>
+                  <h2>The Dark Side of The Moon</h2>
+                  <p>Pink Floyd</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-content">
+          <div class="info-block">
+            <h1>學歷 Education</h1>
+            <div class="container">
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/e_logo01.jpg" alt=""></div>
+                <div class="list-title">
+                  <h2>復興商工</h2>
+                  <p>美工科</p>
+                </div><span>1996 ~ 1999</span>
+              </div>
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/e_logo02.svg" alt=""></div>
+                <div class="list-title">
+                  <h2>環球科技大學(肄)</h2>
+                  <p>視覺傳達系</p>
+                </div><span>2001 ~ 2003</span>
+              </div>
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/e_logo03.jpg" alt=""></div>
+                <div class="list-title">
+                  <h2>台灣藝術大學</h2>
+                  <p>工藝設計學系</p>
+                </div><span>2003 ~ 2006</span>
+              </div>
+            </div>
+          </div>
+          <div class="info-block">
+            <h1>經歷 Works</h1>
+            <div class="container">
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/fti.png" alt=""></div>
+                <div class="list-title">
+                  <h2>沛恩實業股份有限公司</h2>
+                  <p>Product Designer</p>
+                </div><span>2006 ~ 2007</span>
+              </div>
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/payeasy.jpg" alt=""></div>
+                <div class="list-title">
+                  <h2>PayEasy</h2>
+                  <p>Web Designe</p>
+                </div><span>2009 ~ 2011</span>
+              </div>
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/unt.png" alt=""></div>
+                <div class="list-title">
+                  <h2>UNT</h2>
+                  <p>Web Designer manager</p>
+                </div><span>2012 ~ 2013</span>
+              </div>
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/freelancer.jpg" alt=""></div>
+                <div class="list-title">
+                  <h2>專職接案</h2>
+                  <p>Visual Designer</p>
+                </div><span>2013 ~ 2018</span>
+              </div>
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/witsper.jpg" alt=""></div>
+                <div class="list-title">
+                  <h2>智選家</h2>
+                  <p>Visual Designer</p>
+                </div><span>2018 ~ 2020</span>
+              </div>
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/tk3c.png" alt=""></div>
+                <div class="list-title">
+                  <h2>燦坤線上購物</h2>
+                  <p>Web Designer / UI Designer</p>
+                </div><span>2020 ~ 2022</span>
+              </div>
+              <div class="info-list">
+                <div class="list-img"><img src="../assets/img/googoo.jpg" alt=""></div>
+                <div class="list-title">
+                  <h2>汩汩設計</h2>
+                  <p>Web Designer</p>
+                </div><span>2022 ~ 2024</span>
+              </div>
+            </div>
+          </div>
+          <div class="info-block">
+            <h1>技能 Skills</h1>
+            <div class="container">
+              <ul>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:illustrator"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:xd"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:photoshop"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:premiere"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:aftereffects"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:audition"></i></li>
+                <li><i class="iconify skill-icon" data-icon="logos:adobe-animate"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:vscode-dark"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:figma-dark"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:html"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:css"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:pug-light"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:sass"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:jquery"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:git"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:github-light"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="content" id="education-work" v-if="activeIndex === 1">
+        <div class="wrap">
+          <div class="row">
+            <h3>學歷</h3>
+            <h5>Education</h5>
+            <ul>
+              <li>1996 - 1999 復興商工 美工科</li>
+              <li>2001 - 2003 環球科技大學 視傳系 (肄)</li>
+              <li>2003 - 2006 台灣藝術大學 工藝系</li>
+            </ul>
+          </div>
+          <div class="row">
+            <h3>經歷</h3>
+            <h5>Work Experience</h5>
+            <ul>
+              <li>2006 - 2007 沛恩實業股份有限公司</li>
+              <li>2001 - 2003 環球科技大學 視傳系 (肄)</li>
+              <li>2003 - 2006 台灣藝術大學 工藝系</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="content" id="websiteui" v-if="activeIndex === 2">
+        <div class="wrap">
+          <h1>網站UI</h1>
+        </div>
+      </section>
+      <section class="content" id="eventsite" v-if="activeIndex === 3">
+        <div class="wrap">
+          <h1>活動網站</h1>
+        </div>
+      </section>
+      <section class="content" id="cis" v-if="activeIndex === 4">
+        <div class="wrap">
+          <h1>企業識別</h1>
+        </div>
+      </section>
+      <section class="content" id="other" v-if="activeIndex === 5">
+        <div class="wrap">
+          <h1>其他</h1>
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
+  </body>
+</html>

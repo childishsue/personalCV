@@ -1,0 +1,377 @@
+header {
+  @include mp0;
+  font-weight: 300;
+  width: 100%;
+  background-color: white;
+  box-shadow: rgb(95 95 112 / 25%) 7px 6px 18px -28px, rgb(218 218 218 / 30%) 2px 1px 11px 0px;
+  height: 80px;
+  position: relative;
+  z-index: 1;
+  nav {
+    width: 95%;
+    margin: 0 auto;
+    @include flexSBT;
+    @include pc {
+      margin: 10px auto;
+    }
+    ul {
+      list-style: none;
+      align-self: center;
+      li {
+        a {
+          display: flex;
+          height: 80px;
+          font-size: 16px;
+          line-height: 80px;
+          text-align: center;
+          border-bottom: 1px #e5e5e5 solid;
+          color: black;
+          text-decoration: none;
+          padding: 0 20px;
+          margin: 0;
+          &:hover ,&:active, &:focus {
+            color: #2689c5;
+            background: #f4f6f7;
+          }
+        }
+        &.chinalastnight {
+          width: 130px;
+        }
+        &.climatemarketnow {
+          width: 200px;
+        }
+      }
+    }
+    .hamburger {
+      font-size: 50px
+    }
+    .brandLogo {
+      flex: 1;
+      min-width: 150px;
+      height: auto;
+      display: block;
+      align-self: center;
+      margin: 0 30px 0 0;
+      @include pc {
+        flex:unset;
+      }
+    }
+    .keyOption {
+      flex: 9;
+      @include mp0;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      @include pad {
+        display: none;
+      }
+    }
+    .langSwitch {
+      flex: .5;
+      border: $secColor 1px solid;
+      border-radius: 11px;
+      @include pad {
+        display: none;
+      }
+      li {
+        padding: 10px;
+        background: $secColor;
+        &:hover ,&:active, &:focus {
+          background: $white;
+          a {
+            color: $secColor;
+            text-decoration: none;
+            border-bottom: none;
+          }
+        }
+        a {
+          color: $white;
+        }
+        &:first-child {
+          border-radius: 10px 0 0 10px;
+        }
+        &:last-child {
+          border-radius: 0 10px 10px 0;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: linear-gradient(#262638, #0F0F0F);
+  padding: 0 10% 5%;
+  h4 {
+    padding: 5% 0;
+    color: #fff;
+    text-align: center;
+    font-weight: normal;
+    @include lg {
+      padding: 5% 0 0;
+    }
+  }
+  nav {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    @include lg {
+      width: 100%;
+      flex-wrap: wrap;
+      padding: 0 0 5%;
+    }
+    ul {
+      list-style: none;
+      line-height: 2.5rem;
+      align-self: center;
+      @include mp0;
+      @include lg {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+      }
+      li {
+        margin: 0 20px;
+        a {
+          font-size: 30px;
+          color: $white;
+          text-decoration: none;
+          cursor: pointer;
+          color: #64d7ff;
+          transition: all .3s;
+          &:hover ,&:active, &:focus {
+            filter: brightness(100);
+            zoom: 1.01;
+          }
+        }
+        &.tiktok {
+          a {
+            width: 30px;
+            height: auto;
+            display: block;
+            margin: 4px 0 0;
+          }
+        }
+        &.chinalastnight {
+          a {
+            width: 110px;
+            height: auto;
+            display: block;
+            margin: -32px 0 0;
+          }
+        }
+        &.climatemarketnow {
+          a {
+            width: 110px;
+            height: auto;
+            display: block;
+            margin: 3px 0 0;
+          }
+        }
+      }
+    }
+    .keyOption {
+      @include flexFS;
+    }
+  }
+  p {
+    font-size: 13px;
+    text-align: left;
+    color: $white;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+}
+
+aside {
+  ul.keyOption_mobile {
+    list-style: none;
+    @include mp0;
+    li {
+      padding: 20px 30px;
+      font-size: 30px;
+      a {
+        text-decoration: none;
+        display: block;
+        color: #000;
+        text-align: center;
+        margin: 0 auto;
+        &:hover ,&:active, &:focus {
+          color: #2689c5;
+        }
+        i {
+          margin: 0 10px 0 0;
+        }
+      }
+      &.chinalastnight {
+        a {
+          width: 160px;
+        }
+      }
+      &.climatemarketnow {
+        a {
+          width: 160px;
+        }
+      }
+    }
+  }
+}
+
+main {
+  &.index {
+    article.videoTop {
+      position: relative;
+      height: 550px;
+      overflow: clip;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      .keyVedio {
+        top: 0;
+        height: 550px;
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        position: absolute;
+        z-index: -1;
+        video {
+          width: 100%;
+          @include lg {
+            object-fit: cover;
+            height: 180vmin;
+          }
+        }
+      }
+      .overlay {
+        background: linear-gradient(#26263870, #0F0F0F);
+        min-height: 191px;
+        padding: 30px;
+        text-align: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+          font-size: 20px;
+          margin: 10px 0;
+          width: 100%;
+          color: #3186ee;
+          font-weight: normal;
+        }
+        h2 {
+          font-size: 50px;
+          margin-bottom: 20px;
+          font-weight: normal;
+          @include lg {
+            font-size: 5vmin;
+          }
+        }
+        h3 {
+          font-size: 20px;
+          line-height: 1.4;
+          max-width: 1000px;
+          margin: 0 auto 20px;
+          font-weight: normal;
+          @include lg {
+            font-size: 2.5vmin;
+          }
+        }
+      }
+    }
+    article.intro {
+      background: linear-gradient(#262638, #0F0F0F);
+      padding: 70px 0;
+      color: white;
+      line-height: 2.4;
+      font-size: 17px;
+      padding: 70px 50px;
+
+      p {
+        font-size: 16px;
+        max-width: 1000px;
+        margin: 0 auto;
+        font-weight: 200;
+      }
+    }
+    article.bigPic {
+      padding: 70px 0;
+      line-height: 2.4;
+      font-size: 17px;
+      padding: 70px 50px;
+      text-align: center;
+      h2 {
+        font-weight: 600;
+        font-size: 35px;
+        color: #8ed7f8;
+        margin-bottom: 10px;
+      }
+      figure {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+    }
+    article.about {
+      line-height: 2;
+      font-size: 17px;
+      padding: 70px 50px 0;
+      background: linear-gradient(to right, #fff 60%, #F9F9F9 40%);
+      h2 {
+        font-weight: 600;
+        font-size: 35px;
+        color: #8ed7f8;
+        margin-bottom: 10px;
+      }
+      .figureGroup {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 20px;
+        margin: 0 0 5%;
+        @include lg {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-column-gap: 0;
+          grid-row-gap: 150px;
+        }
+        figure {
+          position: relative;
+          div {
+            img {
+              width: 90px;
+            }
+            border-radius: 50%;
+            background: #f4f4f4b5;
+            height: 180px;
+            width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: -74px;
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          figcaption {
+            background: white;
+            padding: 96px 16px 40px;
+            border-radius: 10px;
+            box-shadow: rgb(95 95 112 / 25%) 0px 20px 20px -28px, rgb(218 218 218 / 30%) 2px 1px 20px 0px;
+            min-height: 370px;
+            text-align: center;
+            @include padpro {
+              min-height: 440px;
+            }
+            @include lg {
+              min-height: unset;
+            }
+          }
+        }
+      }
+      .scorpion {
+        font-size: 13px;
+      }
+    }
+  }
+}

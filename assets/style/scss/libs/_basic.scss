@@ -1,0 +1,45 @@
+* {font-family: sans-serif, PingFang SC, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, Arial;}
+body {
+    position: relative;
+}
+img {
+    width:100%;
+    height:auto;
+    outline:0;
+}
+figure {
+    @include mp0;
+}
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+.for_pc {
+    display: inherit !important;
+}
+.for_phone {
+    display: none !important;
+}
+
+@media screen and (max-width:1024px) {
+  html {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    overflow-x: auto !important;
+    padding: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+  .for_pc {
+    display: none !important;
+  }
+  .for_phone {
+      display: inherit !important;
+  }
+  main {
+    margin: 0;
+    padding: 0;
+}
+}
