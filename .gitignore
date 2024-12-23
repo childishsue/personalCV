@@ -1,8 +1,10 @@
-**/node_modules/
-**/package-lock.json
-**/package.json
-**/pnpm-lock.yaml
+node_modules/
 
-**/scss/
-**/layout/
+package-lock.json
+package.json
+pnpm-lock.yaml
+
+scss/
+layout/
+
 *.pug
