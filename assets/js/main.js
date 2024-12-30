@@ -2,27 +2,50 @@ const app = Vue.createApp({
   data() {
     return {
       activeIndex: 0,
-      swiper: null
+      swiper1: null,
+      swiper2: null,
+      swiper3: null
     };
   },
   methods: {
     changeSection(index) {
       this.activeIndex = index;
-      // 當切換回總覽頁面時，初始化 Swiper
-      if (index === 0) {
-        this.$nextTick(() => {
-          this.initSwiper();
-        });
-      }
+
+      this.$nextTick(() => {
+        // 總覽頁面 (index === 0) 的 swiper1
+        if (index === 0) {
+          this.initSwiper1();
+        } else {
+          if (this.swiper1) {
+            this.swiper1.destroy();
+            this.swiper1 = null;
+          }
+        }
+
+        // 經歷頁面 (index === 1) 的 swiper2
+        if (index === 1) {
+          console.log('Initializing experience page sliders');
+          this.initSwiper2();
+          this.initSwiper3(); // 同時初始化 swiper3
+        } else {
+          if (this.swiper2) {
+            this.swiper2.destroy();
+            this.swiper2 = null;
+          }
+          if (this.swiper3) {
+            this.swiper3.destroy();
+            this.swiper3 = null;
+          }
+        }
+      });
     },
-    initSwiper() {
-      // 如果已存在 swiper 實例，先銷毀
-      if (this.swiper) {
-        this.swiper.destroy();
+
+    initSwiper1() {
+      if (this.swiper1) {
+        this.swiper1.destroy();
       }
 
-      // 重新初始化 Swiper
-      this.swiper = new Swiper(".swiper", {
+      this.swiper1 = new Swiper(".swiper-1", {
         effect: "coverflow",
         grabCursor: true,
         centeredSlides: true,
@@ -36,26 +59,89 @@ const app = Vue.createApp({
           modifier: 1,
           slideShadows: false,
         },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
-        on: {
-          click: function(swiper, event) {
-            const clickedSlide = event.target.closest('.swiper-slide');
-            if (clickedSlide) {
-              const index = [...clickedSlide.parentElement.children].indexOf(clickedSlide);
-              this.slideTo(index);
-            }
-          }
+        pagination: {
+          el: ".swiper-1 .swiper-pagination",
+          clickable: true
+        }
+      });
+    },
+
+    initSwiper2() {
+      if (this.swiper2) {
+        this.swiper2.destroy();
+      }
+
+      this.swiper2 = new Swiper(".swiper-2", {
+        effect: "creative",
+        grabCursor: true,
+        centeredSlides: true,
+        loop: true,
+        speed: 600,
+        slidesPerView: 1,
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            origin: "left center",
+            translate: ["-5%", 0, -200],
+            rotate: [0, 100, 0],
+          },
+          next: {
+            origin: "right center",
+            translate: ["5%", 0, -200],
+            rotate: [0, -100, 0],
+          },
+        },
+        pagination: {
+          el: ".swiper-2 .swiper-pagination",
+          clickable: true
+        }
+      });
+    },
+
+    initSwiper3() {
+      if (this.swiper3) {
+        this.swiper3.destroy();
+      }
+
+      this.swiper3 = new Swiper(".swiper-3", {
+        effect: "creative",
+        grabCursor: true,
+        centeredSlides: true,
+        loop: true,
+        speed: 600,
+        slidesPerView: 1,
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            origin: "left center",
+            translate: ["-5%", 0, -200],
+            rotate: [0, 100, 0],
+          },
+          next: {
+            origin: "right center",
+            translate: ["5%", 0, -200],
+            rotate: [0, -100, 0],
+          },
+        },
+        pagination: {
+          el: ".swiper-3 .swiper-pagination",
+          clickable: true
         }
       });
     }
   },
   mounted() {
-    // 初始化載入時，如果在總覽頁面就初始化 Swiper
+    // 根據初始頁面初始化對應的 Swiper
     if (this.activeIndex === 0) {
-      this.initSwiper();
+      this.initSwiper1();
+    } else if (this.activeIndex === 1) {
+      this.initSwiper2();
+    } else if (this.activeIndex === 2) {
+      this.initSwiper3();
     }
   }
 });

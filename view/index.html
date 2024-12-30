@@ -27,22 +27,23 @@
               <li><a href="https://www.linkedin.com/in/neohao/"><i class="iconify nav-icon" data-icon="fa6-brands:linkedin"></i></a></li>
               <li><a href="https://discordapp.com/users/noheaven#9304"><i class="iconify nav-icon" data-icon="fa6-brands:discord"></i></a></li>
             </ul>
+            <ul class="nav-list">
+              <li class="nav-item" :class="{ active: activeIndex === 0 }" @click="changeSection(0)"><a href="#"><i class="iconify nav-icon" data-icon="iconamoon:apps"></i><span class="nav-text">總覽</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 1 }" @click="changeSection(1)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:certificate"></i><span class="nav-text">學歷/經歷</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 2 }" @click="changeSection(2)"><a href="#"><i class="iconify nav-icon" data-icon="mdi:monitor-cellphone-star"></i><span class="nav-text">介面/體驗</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 3 }" @click="changeSection(3)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:text-wrap"></i><span class="nav-text">活動網站</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 4 }" @click="changeSection(4)"><a href="#"><i class="iconify nav-icon" data-icon="material-symbols:brand-family"></i><span class="nav-text">視覺識別</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 5 }" @click="changeSection(5)"><a href="#"><i class="iconify nav-icon" data-icon="ph:dots-three-circle"></i><span class="nav-text">其他</span></a></li>
+              <li class="nav-item"><a href="https://childishsue.github.io/personalCV/assets/doc/resume2024.pdf" target="_blank"><i class="iconify nav-icon" data-icon="ri:file-download-line"></i><span class="nav-text">簡歷下載</span></a></li>
+            </ul>
           </div>
-          <ul>
-            <li class="nav-item" :class="{ active: activeIndex === 0 }" @click="changeSection(0)"><a href="#"><i class="iconify nav-icon" data-icon="iconamoon:apps"></i><span class="nav-text">總覽</span></a></li>
-            <li class="nav-item" :class="{ active: activeIndex === 1 }" @click="changeSection(1)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:certificate"></i><span class="nav-text">學歷/經歷</span></a></li>
-            <li class="nav-item" :class="{ active: activeIndex === 2 }" @click="changeSection(2)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:text-wrap"></i><span class="nav-text">網站UI</span></a></li>
-            <li class="nav-item" :class="{ active: activeIndex === 3 }" @click="changeSection(3)"><a href="#"><i class="iconify nav-icon" data-icon="clarity:application-solid"></i><span class="nav-text">活動網站</span></a></li>
-            <li class="nav-item" :class="{ active: activeIndex === 4 }" @click="changeSection(4)"><a href="#"><i class="iconify nav-icon" data-icon="la:building"></i><span class="nav-text">企業識別</span></a></li>
-            <li class="nav-item" :class="{ active: activeIndex === 5 }" @click="changeSection(5)"><a href="#"><i class="iconify nav-icon" data-icon="fa:home"></i><span class="nav-text">其他</span></a></li>
-          </ul>
         </div>
       </nav>
       <section class="content" id="overview" v-if="activeIndex === 0">
         <div class="left-content">
           <div class="slider-container">
             <h1>活動頁 Eventsite</h1>
-            <div class="swiper">
+            <div class="swiper swiper-1">
               <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="../assets/img/933x277_01.jpg"></div>
                 <div class="swiper-slide"><img src="../assets/img/933x277_02.jpg"></div>
@@ -51,6 +52,8 @@
                 <div class="swiper-slide"><img src="../assets/img/933x277_05.jpg"></div>
                 <div class="swiper-slide"><img src="../assets/img/933x277_06.jpg"></div>
               </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
@@ -227,6 +230,7 @@
                 <li><i class="iconify skill-icon" data-icon="skill-icons:aftereffects"></i></li>
                 <li><i class="iconify skill-icon" data-icon="skill-icons:audition"></i></li>
                 <li><i class="iconify skill-icon" data-icon="logos:adobe-animate"></i></li>
+                <li><i class="iconify skill-icon" data-icon="file-icons:adobe-acrobat"></i></li>
                 <li><i class="iconify skill-icon" data-icon="skill-icons:vscode-dark"></i></li>
                 <li><i class="iconify skill-icon" data-icon="skill-icons:figma-dark"></i></li>
                 <li><i class="iconify skill-icon" data-icon="skill-icons:html"></i></li>
@@ -234,6 +238,7 @@
                 <li><i class="iconify skill-icon" data-icon="skill-icons:pug-light"></i></li>
                 <li><i class="iconify skill-icon" data-icon="skill-icons:sass"></i></li>
                 <li><i class="iconify skill-icon" data-icon="skill-icons:jquery"></i></li>
+                <li><i class="iconify skill-icon" data-icon="skill-icons:vuejs-light"></i></li>
                 <li><i class="iconify skill-icon" data-icon="skill-icons:git"></i></li>
                 <li><i class="iconify skill-icon" data-icon="skill-icons:github-light"></i></li>
               </ul>
@@ -244,56 +249,129 @@
       <section class="content" id="education-work" v-if="activeIndex === 1">
         <div class="wrap">
           <div class="row">
-            <h3>學歷</h3>
-            <h5>Education</h5>
-            <ul>
-              <li>1996 - 1999 復興商工 美工科</li>
-              <li>2001 - 2003 環球科技大學 視傳系 (肄)</li>
-              <li>2003 - 2006 台灣藝術大學 工藝系</li>
-            </ul>
+            <h1>經歷 Work Experience</h1>
+            <div class="slider-container">
+              <div class="swiper swiper-2">
+                <div class="swiper-wrapper">
+                  <div class="card swiper-slide">
+                    <h5>1996~1999</h5>
+                    <h6>復興商工 美工科</h6>
+                  </div>
+                  <div class="card swiper-slide">
+                    <h5>2001~2003</h5>
+                    <h6>環球科技大學 視傳系 (肄)</h6>
+                  </div>
+                  <div class="card swiper-slide">
+                    <h5>2003~2006</h5>
+                    <h6>台灣藝術大學 工藝系</h6>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
           </div>
           <div class="row">
-            <h3>經歷</h3>
-            <h5>Work Experience</h5>
-            <ul>
-              <li>2006 - 2007 沛恩實業股份有限公司</li>
-              <li>2001 - 2003 環球科技大學 視傳系 (肄)</li>
-              <li>2003 - 2006 台灣藝術大學 工藝系</li>
-            </ul>
-          </div>
-          <div class="row">
-            <h3>經歷</h3>
-            <h5>Work Experience</h5>
-            <ul>
-              <li>2006 - 2007 沛恩實業股份有限公司</li>
-              <li>2001 - 2003 環球科技大學 視傳系 (肄)</li>
-              <li>2003 - 2006 台灣藝術大學 工藝系</li>
-            </ul>
-          </div>
-          <div class="row">
-            <h3>經歷</h3>
-            <h5>Work Experience</h5>
-            <ul>
-              <li>2006 - 2007 沛恩實業股份有限公司</li>
-              <li>2001 - 2003 環球科技大學 視傳系 (肄)</li>
-              <li>2003 - 2006 台灣藝術大學 工藝系</li>
-            </ul>
+            <h1>學歷 Educational Background</h1>
+            <div class="slider-container">
+              <div class="swiper swiper-3">
+                <div class="swiper-wrapper">
+                  <div class="card swiper-slide">
+                    <h5>2006~2007 沛恩實業股份有限公司</h5>
+                    <h6>Product Designe</h6>
+                    <ul>
+                      <li>流行趨勢資料收集整匯。</li>
+                      <li>背包、行李箱、手提袋開發設計。</li>
+                      <li>開發期與美國業務及設計師做溝通協調。</li>
+                      <li>赴對岸協助及監督開發進度及完整度能在交貨期準時寄出。</li>
+                      <li>產品周邊印刷品製作。</li>
+                      <li>協助產品拍攝。</li>
+                    </ul>
+                  </div>
+                  <div class="card swiper-slide">
+                    <h5>2009~2011 PayEasy</h5>
+                    <h6>Web Designe</h6>
+                    <ul>
+                      <li>公司各項行銷活動看板、海報、立牌、DM設計製作。</li>
+                      <li>活動頁及網路廣告製作。</li>
+                      <li>公司官網維護。</li>
+                      <li>跨部門溝通行銷活動合作事宜。</li>
+                      <li>行銷活動公版及制定規則。</li>
+                    </ul>
+                  </div>
+                  <div class="card swiper-slide">
+                    <h5>2012~2013 UNT</h5>
+                    <h6>Web Designer manager</h6>
+                    <ul>
+                      <li>管理3人網路動態廣告設計小組。</li>
+                      <li>跨部門溝通協調。</li>
+                      <li>發想及繪製分鏡。</li>
+                      <li>保持並調整網路動態廣告的品牌個性、呈現效果。</li>
+                      <li>監控時程進度及人力調配讓YAHOO、GOOGLE及其他廣告平台的動態廣告能順利上線。</li>
+                      <li>廣告數據檢討，分析A/B test的回饋並指導修正。</li>
+                    </ul>
+                  </div>
+                  <div class="card swiper-slide">
+                    <h5>2013~2018 兼職接案</h5>
+                    <h6>Visual Designer</h6>
+                    <ul>
+                      <li>幫助客戶規劃、設計及製作RWD官方網站、活動網站。</li>
+                      <li>幫助客戶製作FLASH或HTML5網路動態廣告及平面製作物。</li>
+                      <li>以自身經驗協助業主溝通前、後端工程師或製作物廠商。</li>
+                    </ul>
+                  </div>
+                  <div class="card swiper-slide">
+                    <h5>2018~2020 智選家</h5>
+                    <h6>Visual Designer</h6>
+                    <ul>
+                      <li>製作品牌guideline。</li>
+                      <li>SHOPLINE官網維運及優化。</li>
+                      <li>社群素材及廣告素材製作。</li>
+                      <li>各家商城素材製作。</li>
+                      <li>協助規劃、設計及切版製作RWD活動頁面。</li>
+                    </ul>
+                  </div>
+                  <div class="card swiper-slide">
+                    <h5>2020~2022 燦坤線上購物</h5>
+                    <h6>Web Designer / UI Designer</h6>
+                    <ul>
+                      <li>協助規劃、設計及切版製作RWD活動頁面，動效製作、溝通。</li>
+                      <li>網路素材製作。</li>
+                      <li>統籌商品組並規劃直播內容並協助主持。</li>
+                      <li>燦坤網站改版UI/UX規範制定、WIREFRAME繪製、跨部門溝通訪談、最終靜態稿設計輸出。</li>
+                    </ul>
+                  </div>
+                  <div class="card swiper-slide">
+                    <h5>2022~2024 汩汩設計</h5>
+                    <h6>Web Designer / UI Designer</h6>
+                    <ul>
+                      <li>博彩及區塊鏈網站，規劃、設計及前端製作。</li>
+                      <li>博彩及區塊鏈網站包網換皮。</li>
+                      <li>博彩及區塊鏈網站包網活動頁面，規劃、設計及前端製作。</li>
+                      <li>後臺(Bootstrap􄾁 base)拉皮及功能優化。</li>
+                      <li>博彩及區塊鏈網站的品牌LOGO設計。</li>
+                      <li>社群素材及廣告素材製作</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       <section class="content" id="websiteui" v-if="activeIndex === 2">
         <div class="wrap">
-          <h1>網站UI</h1>
+          <h1>介面/體驗 UI/UX</h1>
         </div>
       </section>
       <section class="content" id="eventsite" v-if="activeIndex === 3">
         <div class="wrap">
-          <h1>活動網站</h1>
+          <h1>活動網站 eventsite</h1>
         </div>
       </section>
       <section class="content" id="cis" v-if="activeIndex === 4">
         <div class="wrap">
-          <h1>企業識別</h1>
+          <h1>視覺識別 Vi</h1>
         </div>
       </section>
       <section class="content" id="other" v-if="activeIndex === 5">
