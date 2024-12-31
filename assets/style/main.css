@@ -1138,6 +1138,84 @@ ul.nav-list .nav-item.active a {
   border-radius: 8px;
 }
 
+.charts-container {
+  position: relative;
+  width: 100%; /* 設定寬度 */
+  height: 400px; /* 或指定其他固定高度 */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  -webkit-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
+}
+@media screen and (max-width: 1200px) {
+  .charts-container {
+    gap: 15px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .charts-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.charts-container.visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.charts-container .chart-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
+}
+@media screen and (max-width: 992px) {
+  .charts-container .chart-wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-height: 350px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .charts-container .chart-wrapper {
+    min-height: 300px;
+  }
+}
+.charts-container .chart-wrapper.visible {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.charts-container .chart-wrapper canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 /* Containers of Artist and Albums */
 .containers {
   display: -webkit-box;
@@ -1150,56 +1228,6 @@ ul.nav-list .nav-item.active a {
   overflow-x: auto;
   cursor: -webkit-grab;
   cursor: grab;
-}
-
-/* ARTISTS */
-.artists h1 {
-  margin-bottom: 24px;
-}
-
-.artist-container {
-  -webkit-column-gap: 20px;
-     -moz-column-gap: 20px;
-          column-gap: 20px;
-}
-
-.artist {
-  display: grid;
-  grid-auto-flow: dense;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  grid-template-rows: 8fr 2fr;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-}
-
-.artist-img-container img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid rgba(169, 150, 253, 0.5);
-  width: 140px;
-  aspect-ratio: 1/1;
-  margin-bottom: 8px;
-  -webkit-box-shadow: rgba(221, 221, 221, 0.3) 0px 6px 18px -3px, rgba(221, 221, 221, 0.2) 0px -3px 0px inset;
-          box-shadow: rgba(221, 221, 221, 0.3) 0px 6px 18px -3px, rgba(221, 221, 221, 0.2) 0px -3px 0px inset;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  pointer-events: none;
-}
-
-.artist-img-container:hover img {
-  border: 4px solid rgba(169, 150, 253, 0.6);
-}
-
-.artist p {
-  font-size: clamp(0.9rem, 3vw, 1rem);
-  font-weight: 500;
-  text-align: center;
 }
 
 /* ALBUMS */
@@ -1306,12 +1334,6 @@ ul.nav-list .nav-item.active a {
     border-radius: 16px;
     height: 280px;
   }
-  .artist {
-    grid-template-rows: 7fr 2fr;
-  }
-  .artist img {
-    width: 120px;
-  }
   .album-frame {
     width: 160px;
   }
@@ -1331,12 +1353,6 @@ ul.nav-list .nav-item.active a {
   }
   .swiper-slide img {
     height: 220px;
-  }
-  .artist {
-    grid-template-rows: 5fr 2fr;
-  }
-  .artist img {
-    width: 90px;
   }
   .album {
     grid-template-rows: 4fr 2fr;
@@ -1358,12 +1374,6 @@ ul.nav-list .nav-item.active a {
   }
   .swiper-slide img {
     height: 180px;
-  }
-  .artist {
-    grid-template-rows: 4fr 2fr;
-  }
-  .artist img {
-    width: 80px;
   }
   .album {
     grid-template-rows: 3fr 2fr;
@@ -1408,9 +1418,6 @@ ul.nav-list .nav-item.active a {
   .swiper-slide {
     width: 420px;
   }
-  .artist img {
-    width: 110px;
-  }
   .album {
     grid-template-rows: 3fr 2fr;
   }
@@ -1435,9 +1442,6 @@ ul.nav-list .nav-item.active a {
   }
   .swiper-slide img {
     height: 180px;
-  }
-  .artist img {
-    width: 80px;
   }
   .album {
     grid-template-rows: 3fr 2fr;

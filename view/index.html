@@ -12,6 +12,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   </head>
   <body>
     <main id="app">
@@ -29,8 +30,8 @@
             </ul>
             <ul class="nav-list">
               <li class="nav-item" :class="{ active: activeIndex === 0 }" @click="changeSection(0)"><a href="#"><i class="iconify nav-icon" data-icon="iconamoon:apps"></i><span class="nav-text">總覽</span></a></li>
-              <li class="nav-item" :class="{ active: activeIndex === 1 }" @click="changeSection(1)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:certificate"></i><span class="nav-text">學歷/經歷</span></a></li>
-              <li class="nav-item" :class="{ active: activeIndex === 2 }" @click="changeSection(2)"><a href="#"><i class="iconify nav-icon" data-icon="mdi:monitor-cellphone-star"></i><span class="nav-text">介面/體驗</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 1 }" @click="changeSection(1)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:certificate"></i><span class="nav-text">經歷</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 2 }" @click="changeSection(2)"><a href="#"><i class="iconify nav-icon" data-icon="mdi:monitor-cellphone-star"></i><span class="nav-text">UI/UX</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 3 }" @click="changeSection(3)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:text-wrap"></i><span class="nav-text">活動網站</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 4 }" @click="changeSection(4)"><a href="#"><i class="iconify nav-icon" data-icon="material-symbols:brand-family"></i><span class="nav-text">視覺識別</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 5 }" @click="changeSection(5)"><a href="#"><i class="iconify nav-icon" data-icon="ph:dots-three-circle"></i><span class="nav-text">其他</span></a></li>
@@ -42,7 +43,7 @@
       <section class="content" id="overview" v-if="activeIndex === 0">
         <div class="left-content">
           <div class="slider-container">
-            <h1>活動頁 Eventsite</h1>
+            <h1>精選</h1>
             <div class="swiper swiper-1">
               <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="../assets/img/933x277_01.jpg"></div>
@@ -57,90 +58,24 @@
               <div class="swiper-pagination"></div>
             </div>
           </div>
-          <div class="artists">
-            <h1>素材 Banner</h1>
-            <div class="artist-container containers">
-              <div class="album">
-                <div class="album-frame"><img src="../assets/img/933x277_01.jpg" alt=""></div>
-                <div>
-                  <h2>Views</h2>
-                  <p>Drake</p>
-                </div>
+          <div class="charts">
+            <h1>領域展開</h1>
+            <div class="charts-container" :class="{ visible: activeIndex === 0 }">
+              <div class="chart-wrapper" :class="{ visible: activeIndex === 0 }">
+                <canvas id="radarChart1"></canvas>
               </div>
-              <div class="album">
-                <div class="album-frame"><img src="../assets/img/933x277_02.jpg" alt=""></div>
-                <div>
-                  <h2>Speak Now</h2>
-                  <p>Taylor Swift</p>
-                </div>
+              <div class="chart-wrapper" :class="{ visible: activeIndex === 0 }">
+                <canvas id="radarChart2"></canvas>
               </div>
-              <div class="album">
-                <div class="album-frame"><img src="../assets/img/933x277_03.jpg" alt=""></div>
-                <div>
-                  <h2>Born to Die</h2>
-                  <p>Lana Del Rey</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="../assets/img/933x277_04.jpg" alt=""></div>
-                <div>
-                  <h2>Endless Summer Vacation</h2>
-                  <p>Miley Cyrus</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f01f546a-7ab7-4e90-acb9-1c1e817b676d" alt=""></div>
-                <div>
-                  <h2>The Dark Side of The Moon</h2>
-                  <p>Pink Floyd</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="albums">
-            <h1>商標 Logo</h1>
-            <div class="album-container containers">
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/74c4f0f9-d73e-4737-83fa-ea4afe392229" alt=""></div>
-                <div>
-                  <h2>Views</h2>
-                  <p>Drake</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d3a0bac0-fdb4-467e-bdf5-f3f415928f24" alt=""></div>
-                <div>
-                  <h2>Speak Now</h2>
-                  <p>Taylor Swift</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/85521a12-cc46-4b9f-a742-21ba407ebd5e" alt=""></div>
-                <div>
-                  <h2>Born to Die</h2>
-                  <p>Lana Del Rey</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4e7bf466-7fa5-4dad-b628-5bca12833b64" alt=""></div>
-                <div>
-                  <h2>Endless Summer Vacation</h2>
-                  <p>Miley Cyrus</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f01f546a-7ab7-4e90-acb9-1c1e817b676d" alt=""></div>
-                <div>
-                  <h2>The Dark Side of The Moon</h2>
-                  <p>Pink Floyd</p>
-                </div>
+              <div class="chart-wrapper" :class="{ visible: activeIndex === 0 }">
+                <canvas id="radarChart3"></canvas>
               </div>
             </div>
           </div>
         </div>
         <div class="right-content">
           <div class="info-block">
-            <h1>學歷 Education</h1>
+            <h1>學歷</h1>
             <div class="container">
               <div class="info-list">
                 <div class="list-img"><img src="../assets/img/e_logo01.jpg" alt=""></div>
@@ -166,7 +101,7 @@
             </div>
           </div>
           <div class="info-block">
-            <h1>經歷 Works</h1>
+            <h1>經歷</h1>
             <div class="container">
               <div class="info-list">
                 <div class="list-img"><img src="../assets/img/fti.png" alt=""></div>
@@ -220,7 +155,7 @@
             </div>
           </div>
           <div class="info-block">
-            <h1>技能 Skills</h1>
+            <h1>所有技能</h1>
             <div class="container">
               <ul>
                 <li><i class="iconify skill-icon" data-icon="skill-icons:illustrator"></i></li>
@@ -249,29 +184,11 @@
       <section class="content" id="education-work" v-if="activeIndex === 1">
         <div class="wrap">
           <div class="row">
-            <h1>經歷 Work Experience</h1>
-            <div class="slider-container">
-              <div class="swiper swiper-2">
-                <div class="swiper-wrapper">
-                  <div class="card swiper-slide">
-                    <h5>1996~1999</h5>
-                    <h6>復興商工 美工科</h6>
-                  </div>
-                  <div class="card swiper-slide">
-                    <h5>2001~2003</h5>
-                    <h6>環球科技大學 視傳系 (肄)</h6>
-                  </div>
-                  <div class="card swiper-slide">
-                    <h5>2003~2006</h5>
-                    <h6>台灣藝術大學 工藝系</h6>
-                  </div>
-                </div>
-                <div class="swiper-pagination"></div>
-              </div>
-            </div>
+            <h1>關於我</h1>
+            <p>ji3ji3ji33</p>
           </div>
           <div class="row">
-            <h1>學歷 Educational Background</h1>
+            <h1>經歷</h1>
             <div class="slider-container">
               <div class="swiper swiper-3">
                 <div class="swiper-wrapper">
@@ -361,17 +278,56 @@
       </section>
       <section class="content" id="websiteui" v-if="activeIndex === 2">
         <div class="wrap">
-          <h1>介面/體驗 UI/UX</h1>
+          <h1>UI/UX</h1>
         </div>
       </section>
       <section class="content" id="eventsite" v-if="activeIndex === 3">
         <div class="wrap">
-          <h1>活動網站 eventsite</h1>
+          <h1>活動網站</h1>
         </div>
       </section>
       <section class="content" id="cis" v-if="activeIndex === 4">
         <div class="wrap">
-          <h1>視覺識別 Vi</h1>
+          <h1>視覺識別</h1>
+          <div class="albums">
+            <div class="album-container containers">
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/74c4f0f9-d73e-4737-83fa-ea4afe392229" alt=""></div>
+                <div>
+                  <h2>Views</h2>
+                  <p>Drake</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d3a0bac0-fdb4-467e-bdf5-f3f415928f24" alt=""></div>
+                <div>
+                  <h2>Speak Now</h2>
+                  <p>Taylor Swift</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/85521a12-cc46-4b9f-a742-21ba407ebd5e" alt=""></div>
+                <div>
+                  <h2>Born to Die</h2>
+                  <p>Lana Del Rey</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4e7bf466-7fa5-4dad-b628-5bca12833b64" alt=""></div>
+                <div>
+                  <h2>Endless Summer Vacation</h2>
+                  <p>Miley Cyrus</p>
+                </div>
+              </div>
+              <div class="album">
+                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f01f546a-7ab7-4e90-acb9-1c1e817b676d" alt=""></div>
+                <div>
+                  <h2>The Dark Side of The Moon</h2>
+                  <p>Pink Floyd</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section class="content" id="other" v-if="activeIndex === 5">
