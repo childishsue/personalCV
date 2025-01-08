@@ -57,7 +57,7 @@ const app = Vue.createApp({
         },
         {
           imgSrc: '../assets/img/vi/goldengalaxy.jpg',
-          title: 'nughty',
+          title: '金銀河',
           lightboxGroup: [
             { src: '../assets/img/vi/goldengalaxy_1.jpg', title: '發想' },
             { src: '../assets/img/vi/goldengalaxy_2.jpg', title: 'logo標準色' },
@@ -295,7 +295,7 @@ const app = Vue.createApp({
         effect: 'creative',
         grabCursor: true,
         centeredSlides: true,
-        loop: true,
+        loop: false,
         speed: 600,
         slidesPerView: 1,
         creativeEffect: {
@@ -310,6 +310,10 @@ const app = Vue.createApp({
             translate: ['5%', 0, -200],
             rotate: [0, -100, 0],
           },
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
         pagination: {
           el: '.swiper-2 .swiper-pagination',

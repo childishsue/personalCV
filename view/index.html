@@ -36,7 +36,6 @@
               <li class="nav-item" :class="{ active: activeIndex === 2 }" @click="changeSection(2)"><a href="#"><i class="iconify nav-icon" data-icon="mdi:monitor-cellphone-star"></i><span class="nav-text">UI/UX</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 3 }" @click="changeSection(3)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:text-wrap"></i><span class="nav-text">活動網站</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 4 }" @click="changeSection(4)"><a href="#"><i class="iconify nav-icon" data-icon="material-symbols:brand-family"></i><span class="nav-text">視覺識別</span></a></li>
-              <li class="nav-item" :class="{ active: activeIndex === 5 }" @click="changeSection(5)"><a href="#"><i class="iconify nav-icon" data-icon="ph:dots-three-circle"></i><span class="nav-text">其他</span></a></li>
               <li class="nav-item"><a href="https://childishsue.github.io/personalCV/assets/doc/resume2024.pdf" target="_blank"><i class="iconify nav-icon" data-icon="ri:file-download-line"></i><span class="nav-text">簡歷下載</span></a></li>
             </ul>
           </div>
@@ -194,9 +193,11 @@
         <div class="wrap">
           <div class="row">
             <h1>關於我</h1>
-            <p>個性主動積極、幽默風趣，喜歡用很多觀點去觀察、理解周遭的人事物，熱愛溝通、合作並從中獲得成就感，在專業領域超過15年的經驗、網頁設計領域有10年經驗，能快速理解專案內容需求及策略並規劃手邊資源進行整合運用。</p>
-            <p>熟悉Adobe Creative Cloud裡的各項軟體的操作，擁有UX流程動線規劃並繪製Prototype的經驗，並能根據在HTML5、CSS3及jQuery前端的知識來制定Guideline；規劃交互、RWD架構、SEO佈局，在敏捷開發時也能套用流行框架來快速完成專案；前端部分熟悉PUG語法及SCSS來實現前後端分離並模塊化頁面，並使用Git與夥伴協作完成專案。</p>
-            <p>目前正在學習Vue框架及Webpack打包工具也期待這兩項技能可以在未來發揮實質的功能。</p>
+            <div class="wordgroup">
+              <p>個性主動積極、幽默風趣，喜歡用很多觀點去觀察、理解周遭的人事物，熱愛溝通、合作並從中獲得成就感，在專業領域超過15年的經驗、網頁設計領域有10年經驗，能快速理解專案內容需求及策略並規劃手邊資源進行整合運用。</p>
+              <p>熟悉Adobe Creative Cloud裡的各項軟體的操作，擁有UX流程動線規劃並繪製Prototype的經驗，並能根據在HTML5、CSS3及jQuery前端的知識來制定Guideline；規劃交互、RWD架構、SEO佈局，在敏捷開發時也能套用流行框架來快速完成專案；前端部分熟悉PUG語法及SCSS來實現前後端分離並模塊化頁面，並使用Git與夥伴協作完成專案。</p>
+              <p>目前正在學習Vue框架及Webpack打包工具也期待這兩項技能可以在未來發揮實質的功能。</p>
+            </div>
           </div>
           <div class="row">
             <h1>經歷</h1>
@@ -204,7 +205,8 @@
               <div class="swiper swiper-2">
                 <div class="swiper-wrapper">
                   <div class="card swiper-slide">
-                    <h5>2006~2007 沛恩實業股份有限公司</h5>
+                    <h5>2006~2007</h5>
+                    <h4>沛恩實業股份有限公司</h4>
                     <h6>Product Designe</h6>
                     <ul>
                       <li>流行趨勢資料收集整匯。</li>
@@ -216,7 +218,8 @@
                     </ul>
                   </div>
                   <div class="card swiper-slide">
-                    <h5>2009~2011 PayEasy</h5>
+                    <h5>2009~2011</h5>
+                    <h4>PayEasy</h4>
                     <h6>Web Designe</h6>
                     <ul>
                       <li>公司各項行銷活動看板、海報、立牌、DM設計製作。</li>
@@ -227,7 +230,8 @@
                     </ul>
                   </div>
                   <div class="card swiper-slide">
-                    <h5>2012~2013 UNT</h5>
+                    <h5>2012~2013</h5>
+                    <h4>UNT</h4>
                     <h6>Web Designer manager</h6>
                     <ul>
                       <li>管理3人網路動態廣告設計小組。</li>
@@ -239,7 +243,8 @@
                     </ul>
                   </div>
                   <div class="card swiper-slide">
-                    <h5>2013~2018 兼職接案</h5>
+                    <h5>2013~2018</h5>
+                    <h4>兼職接案</h4>
                     <h6>Visual Designer</h6>
                     <ul>
                       <li>幫助客戶規劃、設計及製作RWD官方網站、活動網站。</li>
@@ -248,7 +253,8 @@
                     </ul>
                   </div>
                   <div class="card swiper-slide">
-                    <h5>2018~2020 智選家</h5>
+                    <h5>2018~2020</h5>
+                    <h4>智選家</h4>
                     <h6>Visual Designer</h6>
                     <ul>
                       <li>製作品牌guideline。</li>
@@ -259,7 +265,8 @@
                     </ul>
                   </div>
                   <div class="card swiper-slide">
-                    <h5>2020~2022 燦坤線上購物</h5>
+                    <h5>2020~2022</h5>
+                    <h4>燦坤線上購物</h4>
                     <h6>Web Designer / UI Designer</h6>
                     <ul>
                       <li>協助規劃、設計及切版製作RWD活動頁面，動效製作、溝通。</li>
@@ -269,7 +276,8 @@
                     </ul>
                   </div>
                   <div class="card swiper-slide">
-                    <h5>2022~2024 汩汩設計</h5>
+                    <h5>2022~2024</h5>
+                    <h4>汩汩設計</h4>
                     <h6>Web Designer / UI Designer</h6>
                     <ul>
                       <li>博彩及區塊鏈網站，規劃、設計及前端製作。</li>
@@ -281,6 +289,8 @@
                     </ul>
                   </div>
                 </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
                 <div class="swiper-pagination"></div>
               </div>
             </div>
@@ -290,11 +300,21 @@
       <section class="content" id="websiteui" v-if="activeIndex === 2">
         <div class="wrap">
           <h1>UI/UX</h1>
+          <div class="album-container"><a class="album" href="https://www.figma.com/design/yBc3ed4Nw3uRyiNdlBC319/TK3C-%E7%B6%B2%E7%AB%99%E5%84%AA%E5%8C%96?node-id=2-3&amp;p=f&amp;t=i5VF9aPtmQIr1X59-0" target="_blank">
+              <figure><img src="../assets/img/uiux/tk3c.jpg"></figure>
+              <h2>燦坤線上購物</h2></a><a class="album" href="https://www.figma.com/design/mQYgdbip66M7PGd6rVIWuU/%E9%9B%BB%E6%B0%A3%E9%86%AB%E9%99%A2?node-id=306-1156&amp;t=Dlxp0RwAAUIvVMr1-0" target="_blank">
+              <figure><img src="../assets/img/uiux/tkhospital.jpg"></figure>
+              <h2>電器醫院</h2></a></div>
         </div>
       </section>
       <section class="content" id="eventsite" v-if="activeIndex === 3">
         <div class="wrap">
           <h1>活動網站</h1>
+          <div class="album-container"><a class="album" href="" target="_blank">
+              <figure><img src=""></figure>
+              <h2>123</h2></a><a class="album" href="" target="_blank">
+              <figure><img src=""></figure>
+              <h2>123</h2></a></div>
         </div>
       </section>
       <section class="content" id="cis" v-if="activeIndex === 4">
