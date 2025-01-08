@@ -1,15 +1,102 @@
 const app = Vue.createApp({
   data() {
     return {
+      showSocialIcons: false,
       activeIndex: 0,
       swiper1: null,
       swiper2: null,
-      swiper3: null,
       radarCharts: [],
       resizeTimeout: null,
+      lightboxVisible: false,
+      currentImgIndex: 0,
+      albums: [
+        {
+          imgSrc: '../assets/img/vi/liberatedarea.jpg',
+          title: '解放區',
+          lightboxGroup: [
+            { src: '../assets/img/vi/liberatedarea_1.jpg', title: '發想' },
+            { src: '../assets/img/vi/liberatedarea_2.jpg', title: 'logo標準色' },
+            { src: '../assets/img/vi/liberatedarea_3.jpg', title: 'VI套用' },
+          ],
+        },
+        {
+          imgSrc: '../assets/img/vi/tripresso.jpg',
+          title: 'tripresso',
+          lightboxGroup: [
+            { src: '../assets/img/vi/tripresso_1.jpg', title: '發想' },
+            { src: '../assets/img/vi/tripresso_2.jpg', title: 'logo標準色' },
+            { src: '../assets/img/vi/tripresso_3.jpg', title: 'VI套用' },
+          ],
+        },
+        {
+          imgSrc: '../assets/img/vi/neohao.jpg',
+          title: '你好設計',
+          lightboxGroup: [
+            { src: '../assets/img/vi/neohao_1.jpg', title: '發想' },
+            { src: '../assets/img/vi/neohao_2.jpg', title: 'logo標準色' },
+            { src: '../assets/img/vi/neohao_3.jpg', title: 'VI套用' },
+          ],
+        },
+        {
+          imgSrc: '../assets/img/vi/underwar.jpg',
+          title: 'underwar',
+          lightboxGroup: [
+            { src: '../assets/img/vi/underwar_1.jpg', title: '發想' },
+            { src: '../assets/img/vi/underwar_2.jpg', title: 'logo標準色' },
+            { src: '../assets/img/vi/underwar_3.jpg', title: 'VI套用' },
+          ],
+        },
+        {
+          imgSrc: '../assets/img/vi/naughty.jpg',
+          title: 'nughty',
+          lightboxGroup: [
+            { src: '../assets/img/vi/naughty_1.jpg', title: '發想' },
+            { src: '../assets/img/vi/naughty_2.jpg', title: 'logo標準色' },
+            { src: '../assets/img/vi/naughty_3.jpg', title: 'VI套用' },
+          ],
+        },
+        {
+          imgSrc: '../assets/img/vi/goldengalaxy.jpg',
+          title: 'nughty',
+          lightboxGroup: [
+            { src: '../assets/img/vi/goldengalaxy_1.jpg', title: '發想' },
+            { src: '../assets/img/vi/goldengalaxy_2.jpg', title: 'logo標準色' },
+            { src: '../assets/img/vi/goldengalaxy_3.jpg', title: 'VI套用' },
+          ],
+        },
+      ],
     };
   },
   methods: {
+    toggleSocialIcons() {
+      this.showSocialIcons = !this.showSocialIcons;
+    },
+    adjustLightboxPosition() {
+      const lightbox = document.querySelector('.vue-easy-lightbox');
+      if (lightbox) {
+        const viewportHeight = window.innerHeight;
+        const lightboxContentHeight = lightbox.offsetHeight;
+        if (lightboxContentHeight > viewportHeight) {
+          lightbox.style.alignItems = 'flex-start';
+        } else {
+          lightbox.style.alignItems = 'center';
+        }
+      }
+    },
+    openLightbox(index) {
+      this.lightboxImages = this.albums[index].lightboxGroup
+      this.currentImgIndex = 0
+      this.lightboxVisible = true
+      this.$nextTick(() => {
+        this.adjustLightboxPosition();
+      });
+    },
+    closeLightbox() {
+      this.lightboxVisible = false
+    },
+    handleHide() {
+      this.lightboxVisible = false
+    },
     changeSection(index) {
       this.activeIndex = index;
 
@@ -27,15 +114,10 @@ const app = Vue.createApp({
 
         if (index === 1) {
           this.initSwiper2();
-          this.initSwiper3();
         } else {
           if (this.swiper2) {
             this.swiper2.destroy();
             this.swiper2 = null;
-          }
-          if (this.swiper3) {
-            this.swiper3.destroy();
-            this.swiper3 = null;
           }
         }
       });
@@ -121,7 +203,7 @@ const app = Vue.createApp({
                 },
                 plugins: {
                   title: {
-                    display: true,
+                    display: false,
                     text: chart.title,
                     align: 'center',
                     color: 'rgba(255, 255, 255, 0.7)',
@@ -171,11 +253,15 @@ const app = Vue.createApp({
         loop: true,
         speed: 600,
         slidesPerView: 'auto',
+        loopedSlides: 4,
+        updateOnWindowResize: true,
+        observer: true,
+        observeParents: true,
         coverflowEffect: {
-          rotate: 10,
-          stretch: 120,
-          depth: 200,
-          modifier: 1,
+          rotate: 20,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
           slideShadows: false,
         },
         navigation: {
@@ -186,6 +272,17 @@ const app = Vue.createApp({
           el: '.swiper-1 .swiper-pagination',
           clickable: true,
         },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 1,
+          },
+          1024: {
+            slidesPerView: 2,
+          }
+        }
       });
     },
 
@@ -221,38 +318,6 @@ const app = Vue.createApp({
       });
     },
 
-    initSwiper3() {
-      if (this.swiper3) {
-        this.swiper3.destroy();
-      }
-
-      this.swiper3 = new Swiper('.swiper-3', {
-        effect: 'creative',
-        grabCursor: true,
-        centeredSlides: true,
-        loop: true,
-        speed: 600,
-        slidesPerView: 1,
-        creativeEffect: {
-          prev: {
-            shadow: true,
-            origin: 'left center',
-            translate: ['-5%', 0, -200],
-            rotate: [0, 100, 0],
-          },
-          next: {
-            origin: 'right center',
-            translate: ['5%', 0, -200],
-            rotate: [0, -100, 0],
-          },
-        },
-        pagination: {
-          el: '.swiper-3 .swiper-pagination',
-          clickable: true,
-        },
-      });
-    },
-
     handleResize() {
       if (this.resizeTimeout) {
         clearTimeout(this.resizeTimeout);
@@ -272,13 +337,15 @@ const app = Vue.createApp({
       this.initRadarCharts();
     } else if (this.activeIndex === 1) {
       this.initSwiper2();
-      this.initSwiper3();
     }
     window.addEventListener('resize', this.handleResize);
+    window.addEventListener('resize', this.adjustLightboxPosition)
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('resize', this.adjustLightboxPosition);
   },
 });
 
+app.use(VueEasyLightbox)
 app.mount('#app');

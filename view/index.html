@@ -7,12 +7,14 @@
     <title>PersonalCV</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-easy-lightbox/dist/vue-easy-lightbox.css">
     <link rel="stylesheet" href="../assets/style/main.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.13/vue.global.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vue-easy-lightbox/dist/vue-easy-lightbox.umd.min.js"></script>
   </head>
   <body>
     <main id="app">
@@ -20,8 +22,8 @@
         <div>
           <div class="user-info"><img src="../assets/img/neosu.jpg" alt="user">
             <p>蘇子豪</p>
-            <p>Neo</p>
-            <ul class="social-icon">
+            <p>Neo</p><a class="toggle-button" @click="toggleSocialIcons"><i class="iconify nav-icon" data-icon="ic:twotone-arrow-drop-down-circle"></i></a>
+            <ul class="social-icon" :class="{ 'show': showSocialIcons }">
               <li><a href="https://line.me/ti/p/i-xcQyisle"><i class="iconify nav-icon" data-icon="fa6-brands:line"></i></a></li>
               <li><a href="https://www.facebook.com/childish.sue"><i class="iconify nav-icon" data-icon="fa6-brands:square-facebook"></i></a></li>
               <li><a href="https://www.instagram.com/neohao_imona/"><i class="iconify nav-icon" data-icon="fa6-brands:instagram"></i></a></li>
@@ -46,12 +48,16 @@
             <h1>素材精選</h1>
             <div class="swiper swiper-1">
               <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="../assets/img/933x277_01.jpg"></div>
-                <div class="swiper-slide"><img src="../assets/img/933x277_02.jpg"></div>
-                <div class="swiper-slide"><img src="../assets/img/933x277_03.jpg"></div>
-                <div class="swiper-slide"><img src="../assets/img/933x277_04.jpg"></div>
-                <div class="swiper-slide"><img src="../assets/img/933x277_05.jpg"></div>
-                <div class="swiper-slide"><img src="../assets/img/933x277_06.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_01.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_02.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_03.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_04.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_05.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_06.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_07.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_08.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_09.jpg"></div>
+                <div class="swiper-slide"><img src="../assets/img/banner/933x277_10.jpg"></div>
               </div>
               <div class="swiper-button-prev"></div>
               <div class="swiper-button-next"></div>
@@ -62,12 +68,15 @@
             <h1>領域展開</h1>
             <div class="charts-container" :class="{ visible: activeIndex === 0 }">
               <div class="chart-wrapper" :class="{ visible: activeIndex === 0 }">
+                <h2 class="chartTitle">軟體</h2>
                 <canvas id="radarChart1"></canvas>
               </div>
               <div class="chart-wrapper" :class="{ visible: activeIndex === 0 }">
+                <h2 class="chartTitle">設計</h2>
                 <canvas id="radarChart2"></canvas>
               </div>
               <div class="chart-wrapper" :class="{ visible: activeIndex === 0 }">
+                <h2 class="chartTitle">前端</h2>
                 <canvas id="radarChart3"></canvas>
               </div>
             </div>
@@ -185,12 +194,14 @@
         <div class="wrap">
           <div class="row">
             <h1>關於我</h1>
-            <p>ji3ji3ji33</p>
+            <p>個性主動積極、幽默風趣，喜歡用很多觀點去觀察、理解周遭的人事物，熱愛溝通、合作並從中獲得成就感，在專業領域超過15年的經驗、網頁設計領域有10年經驗，能快速理解專案內容需求及策略並規劃手邊資源進行整合運用。</p>
+            <p>熟悉Adobe Creative Cloud裡的各項軟體的操作，擁有UX流程動線規劃並繪製Prototype的經驗，並能根據在HTML5、CSS3及jQuery前端的知識來制定Guideline；規劃交互、RWD架構、SEO佈局，在敏捷開發時也能套用流行框架來快速完成專案；前端部分熟悉PUG語法及SCSS來實現前後端分離並模塊化頁面，並使用Git與夥伴協作完成專案。</p>
+            <p>目前正在學習Vue框架及Webpack打包工具也期待這兩項技能可以在未來發揮實質的功能。</p>
           </div>
           <div class="row">
             <h1>經歷</h1>
             <div class="slider-container">
-              <div class="swiper swiper-3">
+              <div class="swiper swiper-2">
                 <div class="swiper-wrapper">
                   <div class="card swiper-slide">
                     <h5>2006~2007 沛恩實業股份有限公司</h5>
@@ -289,47 +300,15 @@
       <section class="content" id="cis" v-if="activeIndex === 4">
         <div class="wrap">
           <h1>視覺識別</h1>
-          <div class="albums">
-            <div class="album-container containers">
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/74c4f0f9-d73e-4737-83fa-ea4afe392229" alt=""></div>
-                <div>
-                  <h2>Views</h2>
-                  <p>Drake</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d3a0bac0-fdb4-467e-bdf5-f3f415928f24" alt=""></div>
-                <div>
-                  <h2>Speak Now</h2>
-                  <p>Taylor Swift</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/85521a12-cc46-4b9f-a742-21ba407ebd5e" alt=""></div>
-                <div>
-                  <h2>Born to Die</h2>
-                  <p>Lana Del Rey</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4e7bf466-7fa5-4dad-b628-5bca12833b64" alt=""></div>
-                <div>
-                  <h2>Endless Summer Vacation</h2>
-                  <p>Miley Cyrus</p>
-                </div>
-              </div>
-              <div class="album">
-                <div class="album-frame"><img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f01f546a-7ab7-4e90-acb9-1c1e817b676d" alt=""></div>
-                <div>
-                  <h2>The Dark Side of The Moon</h2>
-                  <p>Pink Floyd</p>
-                </div>
-              </div>
+          <div class="album-container">
+            <div class="album" v-for="(album, index) in albums" @click="openLightbox(index)" :key="index">
+              <figure><img :src="album.imgSrc" :alt="album.title"></figure>
+              <h2>{{ album.title }}</h2>
             </div>
           </div>
         </div>
       </section>
+      <vue-easy-lightbox :visible="lightboxVisible" :imgs="lightboxImages" :index="currentImgIndex" @hide="handleHide"></vue-easy-lightbox>
       <section class="content" id="other" v-if="activeIndex === 5">
         <div class="wrap">
           <h1>其他</h1>
