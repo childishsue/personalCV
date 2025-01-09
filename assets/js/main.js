@@ -7,9 +7,11 @@ const app = Vue.createApp({
       swiper2: null,
       radarCharts: [],
       resizeTimeout: null,
-      lightboxVisible: false,
-      currentImgIndex: 0,
-      albums: [
+      lightboxVisibleVi: false,
+      lightboxVisibleGraphic: false,
+      currentImgIndexVi: 0,
+      currentImgIndexGraphic: 0,
+      albums_vi: [
         {
           imgSrc: '../assets/img/vi/liberatedarea.jpg',
           title: '解放區',
@@ -65,6 +67,46 @@ const app = Vue.createApp({
           ],
         },
       ],
+      albums_graphic: [
+        {
+          imgSrc: '../assets/img/graphicdesign/makeupforever.jpg',
+          title: 'MAKE UP FOR EVER',
+          lightboxGroup: [
+            { src: '../assets/img/graphicdesign/makeupforever_1.jpg', title: '專櫃小卡' },
+            { src: '../assets/img/graphicdesign/makeupforever_1.jpg', title: '專櫃色卡' },
+          ],
+        },
+        {
+          imgSrc: '../assets/img/graphicdesign/mazeltrading.jpg',
+          title: 'MazelTrading',
+          lightboxGroup: [
+            { src: '../assets/img/graphicdesign/mazeltrading_1.jpg', title: '展場小卡' },
+          ],
+        },
+        {
+          imgSrc: '../assets/img/graphicdesign/migo.jpg',
+          title: 'Migo',
+          lightboxGroup: [
+            { src: '../assets/img/graphicdesign/migo_1.jpg', title: '海報' },
+            { src: '../assets/img/graphicdesign/migo_2.jpg', title: '海報' },
+          ],
+        },
+        {
+          imgSrc: '../assets/img/graphicdesign/payeasy.jpg',
+          title: 'PayEasy',
+          lightboxGroup: [
+            { src: '../assets/img/graphicdesign/payeasy_1.jpg', title: '宣傳手冊' },
+          ],
+        },
+        {
+          imgSrc: '../assets/img/graphicdesign/puma.jpg',
+          title: 'PUMA',
+          lightboxGroup: [
+            { src: '../assets/img/graphicdesign/puma_1.jpg', title: '活動立牌' },
+            { src: '../assets/img/graphicdesign/puma_2.jpg', title: '活動立牌' },
+          ],
+        },
+      ],
     };
   },
   methods: {
@@ -83,19 +125,33 @@ const app = Vue.createApp({
         }
       }
     },
-    openLightbox(index) {
-      this.lightboxImages = this.albums[index].lightboxGroup
-      this.currentImgIndex = 0
-      this.lightboxVisible = true
+    openLightboxVi(index) {
+      this.lightboxImagesVi = this.albums_vi[index].lightboxGroup;
+      this.currentImgIndexVi = 0;
+      this.lightboxVisibleVi = true;
       this.$nextTick(() => {
         this.adjustLightboxPosition();
       });
     },
-    closeLightbox() {
-      this.lightboxVisible = false
+    openLightboxGraphic(index) {
+      this.lightboxImagesGraphic = this.albums_graphic[index].lightboxGroup;
+      this.currentImgIndexGraphic = 0;
+      this.lightboxVisibleGraphic = true;
+      this.$nextTick(() => {
+        this.adjustLightboxPosition();
+      });
     },
-    handleHide() {
-      this.lightboxVisible = false
+    closeLightboxVi() {
+      this.lightboxVisibleVi = false
+    },
+    closeLightboxGraphic() {
+      this.lightboxVisibleGraphic = false
+    },
+    handleHideVi() {
+      this.lightboxVisibleVi = false
+    },
+    handleHideGraphic() {
+      this.lightboxVisibleGraphic = false
     },
     changeSection(index) {
       this.activeIndex = index;

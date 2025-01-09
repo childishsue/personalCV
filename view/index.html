@@ -35,7 +35,8 @@
               <li class="nav-item" :class="{ active: activeIndex === 1 }" @click="changeSection(1)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:certificate"></i><span class="nav-text">經歷</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 2 }" @click="changeSection(2)"><a href="#"><i class="iconify nav-icon" data-icon="mdi:monitor-cellphone-star"></i><span class="nav-text">UI/UX</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 3 }" @click="changeSection(3)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:text-wrap"></i><span class="nav-text">活動網站</span></a></li>
-              <li class="nav-item" :class="{ active: activeIndex === 4 }" @click="changeSection(4)"><a href="#"><i class="iconify nav-icon" data-icon="material-symbols:brand-family"></i><span class="nav-text">視覺識別</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 4 }" @click="changeSection(4)"><a href="#"><i class="iconify nav-icon" data-icon="mdi:file-image"></i><span class="nav-text">平面設計</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 5 }" @click="changeSection(5)"><a href="#"><i class="iconify nav-icon" data-icon="material-symbols:brand-family"></i><span class="nav-text">視覺識別</span></a></li>
               <li class="nav-item"><a href="https://childishsue.github.io/personalCV/assets/doc/resume2024.pdf" target="_blank"><i class="iconify nav-icon" data-icon="ri:file-download-line"></i><span class="nav-text">簡歷下載</span></a></li>
             </ul>
           </div>
@@ -317,23 +318,30 @@
               <h2>123</h2></a></div>
         </div>
       </section>
-      <section class="content" id="cis" v-if="activeIndex === 4">
+      <section class="content" id="graphicdesign" v-if="activeIndex === 4">
         <div class="wrap">
-          <h1>視覺識別</h1>
+          <h1>平面設計</h1>
           <div class="album-container">
-            <div class="album" v-for="(album, index) in albums" @click="openLightbox(index)" :key="index">
+            <div class="album" v-for="(album, index) in albums_graphic" @click="openLightboxGraphic(index)" :key="index">
               <figure><img :src="album.imgSrc" :alt="album.title"></figure>
               <h2>{{ album.title }}</h2>
             </div>
           </div>
         </div>
       </section>
-      <vue-easy-lightbox :visible="lightboxVisible" :imgs="lightboxImages" :index="currentImgIndex" @hide="handleHide"></vue-easy-lightbox>
-      <section class="content" id="other" v-if="activeIndex === 5">
+      <vue-easy-lightbox :visible="lightboxVisibleGraphic" :imgs="lightboxImagesGraphic" :index="currentImgIndexGraphic" @hide="handleHideGraphic"></vue-easy-lightbox>
+      <section class="content" id="vi" v-if="activeIndex === 5">
         <div class="wrap">
-          <h1>其他</h1>
+          <h1>視覺識別</h1>
+          <div class="album-container">
+            <div class="album" v-for="(album, index) in albums_vi" @click="openLightboxVi(index)" :key="index">
+              <figure><img :src="album.imgSrc" :alt="album.title"></figure>
+              <h2>{{ album.title }}</h2>
+            </div>
+          </div>
         </div>
       </section>
+      <vue-easy-lightbox :visible="lightboxVisibleVi" :imgs="lightboxImagesVi" :index="currentImgIndexVi" @hide="handleHideVi"></vue-easy-lightbox>
     </main>
     <script type="text/javascript" src="../assets/js/main.js"></script>
   </body>
