@@ -24,7 +24,7 @@
         <div>
           <div class="user-info"><img src="../assets/img/neosu.jpg" alt="user">
             <p>蘇子豪</p>
-            <p>Neo</p><a class="toggle-button" @click="toggleSocialIcons"><i class="iconify nav-icon" data-icon="ic:twotone-arrow-drop-down-circle"></i></a>
+            <p>Neo</p><a @click="toggleSocialIcons" :class="['toggle-button', { 'rotated': showSocialIcons }]"><i class="iconify nav-icon" data-icon="ic:twotone-arrow-drop-down-circle"></i></a>
             <ul class="social-icon" :class="{ 'show': showSocialIcons }">
               <li><a href="https://line.me/ti/p/i-xcQyisle"><i class="iconify nav-icon" data-icon="fa6-brands:line"></i></a></li>
               <li><a href="https://www.facebook.com/childish.sue"><i class="iconify nav-icon" data-icon="fa6-brands:square-facebook"></i></a></li>
@@ -36,7 +36,7 @@
               <li class="nav-item" :class="{ active: activeIndex === 0 }" @click="changeSection(0)"><a href="#"><i class="iconify nav-icon" data-icon="iconamoon:apps"></i><span class="nav-text">總覽</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 1 }" @click="changeSection(1)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:certificate"></i><span class="nav-text">經歷</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 2 }" @click="changeSection(2)"><a href="#"><i class="iconify nav-icon" data-icon="mdi:monitor-cellphone-star"></i><span class="nav-text">UI/UX</span></a></li>
-              <li class="nav-item" :class="{ active: activeIndex === 3 }" @click="changeSection(3)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:text-wrap"></i><span class="nav-text">活動網站</span></a></li>
+              <li class="nav-item" :class="{ active: activeIndex === 3 }" @click="changeSection(3)"><a href="#"><i class="iconify nav-icon" data-icon="grommet-icons:text-wrap"></i><span class="nav-text">活動/網站</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 4 }" @click="changeSection(4)"><a href="#"><i class="iconify nav-icon" data-icon="mdi:file-image"></i><span class="nav-text">平面設計</span></a></li>
               <li class="nav-item" :class="{ active: activeIndex === 5 }" @click="changeSection(5)"><a href="#"><i class="iconify nav-icon" data-icon="material-symbols:brand-family"></i><span class="nav-text">視覺識別</span></a></li>
               <li class="nav-item"><a href="https://childishsue.github.io/personalCV/assets/doc/resume2024.pdf" target="_blank"><i class="iconify nav-icon" data-icon="ri:file-download-line"></i><span class="nav-text">簡歷下載</span></a></li>
@@ -119,49 +119,49 @@
                 <div class="list-title">
                   <h2>沛恩集團</h2>
                   <p>Product Designer</p>
-                </div><span>2006 ~ 2007</span>
+                </div><span>2006/8 ~ 2007/9</span>
               </div>
               <div class="info-list">
                 <div class="list-img"><img src="../assets/img/payeasy.jpg" alt=""></div>
                 <div class="list-title">
                   <h2>PayEasy</h2>
                   <p>Web Designer</p>
-                </div><span>2009 ~ 2011</span>
+                </div><span>2009/7 ~ 2011/4</span>
               </div>
               <div class="info-list">
                 <div class="list-img"><img src="../assets/img/unt.png" alt=""></div>
                 <div class="list-title">
                   <h2>UNT</h2>
                   <p>Web Design manager</p>
-                </div><span>2012 ~ 2013</span>
+                </div><span>2012/4 ~ 2013/4</span>
               </div>
               <div class="info-list">
                 <div class="list-img"><img src="../assets/img/freelancer.jpg" alt=""></div>
                 <div class="list-title">
-                  <h2>專職接案</h2>
+                  <h2>全職接案</h2>
                   <p>Visual Designer</p>
-                </div><span>2013 ~ 2018</span>
+                </div><span>2013/4 ~ 2018/11</span>
               </div>
               <div class="info-list">
                 <div class="list-img"><img src="../assets/img/witsper.jpg" alt=""></div>
                 <div class="list-title">
                   <h2>智選家</h2>
                   <p>Visual Designer</p>
-                </div><span>2018 ~ 2020</span>
+                </div><span>2018/12 ~ 2020/8</span>
               </div>
               <div class="info-list">
                 <div class="list-img"><img src="../assets/img/tk3c.png" alt=""></div>
                 <div class="list-title">
                   <h2>燦坤線上購物</h2>
                   <p>Web UI/UX Designer</p>
-                </div><span>2020 ~ 2022</span>
+                </div><span>2020/5 ~ 2022/4</span>
               </div>
               <div class="info-list">
                 <div class="list-img"><img src="../assets/img/googoo.jpg" alt=""></div>
                 <div class="list-title">
                   <h2>汩汩設計</h2>
                   <p>Web Designer</p>
-                </div><span>2022 ~ 2024</span>
+                </div><span>2022/5 ~ 2024/11</span>
               </div>
             </div>
           </div>
@@ -312,8 +312,16 @@
       </section>
       <section class="content" id="eventsite" v-if="activeIndex === 3">
         <div class="wrap">
-          <h1>活動網站(整理中...)</h1>
-          <div class="album-container"></div>
+          <h1>活動/網站</h1>
+          <div class="album-container"><a class="album" href="https://childishsue.github.io/allwebsite/eumax/index.html" target="_blank">
+              <figure><img src="../assets/img/website/eumax2.jpg"></figure>
+              <h2>eumax2</h2></a><a class="album" href="https://childishsue.github.io/allwebsite/fca_v2/index.html" target="_blank">
+              <figure><img src="../assets/img/website/ht.jpg"></figure>
+              <h2>H&T</h2></a><a class="album" href="https://childishsue.github.io/allwebsite/ht/index.html" target="_blank">
+              <figure><img src="../assets/img/website/jfd2.jpg"></figure>
+              <h2>JFD</h2></a><a class="album" href="https://childishsue.github.io/allwebsite/plusmax2/index.html" target="_blank">
+              <figure><img src="../assets/img/website/plusmax2.jpg"></figure>
+              <h2>plusMax2</h2></a></div>
         </div>
       </section>
       <section class="content" id="graphicdesign" v-if="activeIndex === 4">

@@ -1,7 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
-      showSocialIcons: false,
+      showSocialIcons: true,
       activeIndex: 0,
       swiper1: null,
       swiper2: null,

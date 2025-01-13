@@ -1035,6 +1035,14 @@ nav.main-menu ul li a {
 .user-info .toggle-button {
   display: none;
   color: rgb(17, 237, 200);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.user-info .toggle-button.rotated {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 @media screen and (max-width: 430px) {
   .user-info .toggle-button {
@@ -1136,11 +1144,16 @@ ul.nav-list .nav-item.active a {
 }
 .content#overview .right-content .info-block .container .info-list {
   display: grid;
-  grid-template-columns: 15% auto 25%;
+  grid-template-columns: 15% auto 40%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 10px;
+}
+@media screen and (max-width: 1440px) {
+  .content#overview .right-content .info-block .container .info-list {
+    grid-template-columns: 20% auto 40%;
+  }
 }
 @media screen and (max-width: 992px) {
   .content#overview .right-content .info-block .container .info-list {
@@ -1154,7 +1167,7 @@ ul.nav-list .nav-item.active a {
 }
 @media screen and (max-width: 414px) {
   .content#overview .right-content .info-block .container .info-list {
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 70% 30%;
   }
 }
 .content#overview .right-content .info-block .container .info-list .list-img {
@@ -1191,6 +1204,12 @@ ul.nav-list .nav-item.active a {
 .content#overview .right-content .info-block .container .info-list span {
   font-size: 0.8rem;
   font-weight: 300;
+  white-space: nowrap;
+}
+@media screen and (max-width: 576px) {
+  .content#overview .right-content .info-block .container .info-list span {
+    white-space: unset;
+  }
 }
 .content#overview .right-content .info-block .container ul {
   display: -webkit-box;
@@ -1403,7 +1422,7 @@ ul.nav-list .nav-item.active a {
   min-height: 350px;
   padding: 40px 70px;
   border-radius: 15px;
-  border: 2px solid rgb(228, 196, 0);
+  border: 2px solid rgb(17, 237, 200);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-shadow: 3px 3px 7px rgb(0, 0, 0) inset, 0px 5px 5px rgb(0, 0, 0);
@@ -1458,31 +1477,31 @@ ul.nav-list .nav-item.active a {
 }
 
 .card.swiper-slide:nth-child(1) {
-  background: linear-gradient(45deg, rgba(79, 0, 0, 0.9) 20%, rgba(182, 0, 0, 0.9) 80%);
+  background: linear-gradient(45deg, rgba(0, 36, 38, 0.9) 20%, rgba(16, 169, 130, 0.9) 80%);
 }
 
 .card.swiper-slide:nth-child(2) {
-  background: linear-gradient(45deg, rgba(120, 0, 96, 0.9) 20%, rgba(255, 142, 232, 0.9) 80%);
+  background: linear-gradient(45deg, rgba(0, 36, 38, 0.9) 20%, rgba(16, 169, 130, 0.9) 80%);
 }
 
 .card.swiper-slide:nth-child(3) {
-  background: linear-gradient(45deg, rgba(94, 39, 0, 0.9) 20%, rgba(208, 86, 0, 0.9) 80%);
+  background: linear-gradient(45deg, rgba(0, 36, 38, 0.9) 20%, rgba(16, 169, 130, 0.9) 80%);
 }
 
 .card.swiper-slide:nth-child(4) {
-  background: linear-gradient(45deg, rgba(15, 61, 0, 0.9) 20%, rgba(3, 133, 0, 0.9) 80%);
+  background: linear-gradient(45deg, rgba(0, 36, 38, 0.9) 20%, rgba(16, 169, 130, 0.9) 80%);
 }
 
 .card.swiper-slide:nth-child(5) {
-  background: linear-gradient(45deg, rgba(0, 126, 179, 0.9) 20%, rgba(120, 207, 255, 0.9) 80%);
+  background: linear-gradient(45deg, rgba(0, 36, 38, 0.9) 20%, rgba(16, 169, 130, 0.9) 80%);
 }
 
 .card.swiper-slide:nth-child(6) {
-  background: linear-gradient(45deg, rgba(35, 36, 0, 0.9) 20%, rgba(183, 178, 0, 0.9) 80%);
+  background: linear-gradient(45deg, rgba(0, 36, 38, 0.9) 20%, rgba(16, 169, 130, 0.9) 80%);
 }
 
 .card.swiper-slide:nth-child(7) {
-  background: linear-gradient(45deg, rgba(0, 61, 60, 0.9) 20%, rgba(19, 149, 185, 0.9) 80%);
+  background: linear-gradient(45deg, rgba(0, 36, 38, 0.9) 20%, rgba(16, 169, 130, 0.9) 80%);
 }
 
 .charts-container {
