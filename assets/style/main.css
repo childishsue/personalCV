@@ -1522,6 +1522,10 @@ ul.nav-list .nav-item.active a {
   background: linear-gradient(45deg, rgba(0, 36, 38, 0.9) 20%, rgba(16, 169, 130, 0.9) 80%);
 }
 
+.card.swiper-slide:nth-child(8) {
+  background: linear-gradient(45deg, rgba(0, 36, 38, 0.9) 20%, rgba(16, 169, 130, 0.9) 80%);
+}
+
 .charts-container {
   position: relative;
   width: 100%;
